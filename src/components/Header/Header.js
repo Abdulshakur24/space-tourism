@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { HeaderWrapper } from "./HeaderStyle";
 import { ReactComponent as Logo } from "../../assets/shared/logo.svg";
 import { isFirefox, isIE } from "react-device-detect";
