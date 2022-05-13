@@ -8,7 +8,8 @@ function Sidebar() {
   const { pathname } = useLocation();
   const { setToggle } = useContext(ToggleContext);
 
-  const handleClick = () => {
+  const handleClick = (path) => {
+    if (pathname === path) return;
     setToggle((prev) => {
       return { ...prev, burger: false };
     });
@@ -30,25 +31,31 @@ function Sidebar() {
         <div className="container">
           <div className="content">
             <div className="link">
-              <Link onClick={handleClick} to={"/"}>
+              <Link onClick={() => handleClick("/")} to={"/"}>
                 <em>00</em>Home
               </Link>
               <div className={`block ${pathname === "/"}`} />
             </div>
             <div className="link">
-              <Link onClick={handleClick} to={"/destinations"}>
+              <Link
+                onClick={() => handleClick("/destinations")}
+                to={"/destinations"}
+              >
                 <em>01</em>Destinations
               </Link>
               <div className={`block ${pathname === "/destinations"}`} />
             </div>
             <div className="link">
-              <Link onClick={handleClick} to={"/crew"}>
+              <Link onClick={() => handleClick("/crew")} to={"/crew"}>
                 <em>02</em>Crew
               </Link>
               <div className={`block ${pathname === "/crew"}`} />
             </div>
             <div className="link">
-              <Link onClick={handleClick} to={"/technology"}>
+              <Link
+                onClick={() => handleClick("/technology")}
+                to={"/technology"}
+              >
                 <em>03</em>Technology
               </Link>
               <div className={`block ${pathname === "/technology"}`} />
