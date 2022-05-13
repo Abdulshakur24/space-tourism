@@ -7,7 +7,7 @@ function App() {
   const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location}>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home duration={0.25} />} />
           <Route
