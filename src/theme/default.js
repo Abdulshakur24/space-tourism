@@ -9,10 +9,10 @@ const object = {
     tertiary: "hsl(0, 0%, 100%)",
   },
   breakpoints: {
-    sm: "screen and (max-width: 4250px)",
-    md: "screen and (max-width: 768px)",
-    lg: "screen and (max-width: 1024px)",
-    xl: "screen and (max-width: 1280px)",
+    sm: "screen and (min-width: 4250px)",
+    md: "screen and (min-width: 768px)",
+    lg: "screen and (min-width: 1280px)",
+    xl: "screen and (min-width: 1440px)",
   },
 };
 
