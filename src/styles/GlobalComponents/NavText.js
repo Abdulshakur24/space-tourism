@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-function NavText({ text }) {
-  return <SH1Wrapper>{text}</SH1Wrapper>;
+function NavText({ children }) {
+  return <SH1Wrapper>{children}</SH1Wrapper>;
 }
 
-const SH1Wrapper = styled(motion.h1)`
+const SH1Wrapper = styled(motion.p)`
   font-family: ${(props) => props.theme.fonts.bellefair};
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  letter-spacing: 2.7px;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  letter-spacing: 0.1688rem;
   color: ${(props) => props.theme.colors.tertiary};
 `;
 

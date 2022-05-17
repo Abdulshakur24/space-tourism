@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-function H5({ text }) {
-  return <H5Wrapper>{text}</H5Wrapper>;
+function H5({ children }) {
+  return <H5Wrapper>{children}</H5Wrapper>;
 }
 
-const H5Wrapper = styled(motion.h1)`
+const H5Wrapper = styled(motion.h5)`
   font-family: ${(props) => props.theme.fonts.barlow};
   font-style: normal;
   font-weight: 400;
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 1.75rem;
+  line-height: 2.125rem;
   text-transform: uppercase;
-  letter-spacing: 4.725px;
+  letter-spacing: 0.2953rem;
   color: ${(props) => props.theme.colors.secondary};
 `;
 
