@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BackdropWrapper, SidebarWrapper } from "./SidebarStyle";
-import { isFirefox, isIE } from "react-device-detect";
 import { ToggleContext } from "../../pages/Layout/Layout";
 
 function Sidebar() {
@@ -22,11 +21,6 @@ function Sidebar() {
         animate={{ x: 0 }}
         exit={{ x: "100vh" }}
         transition={{ damping: false }}
-        style={
-          isFirefox || isIE
-            ? { backgroundColor: "rgb(12, 14, 24)" }
-            : { backdropFilter: "blur(81.5485px)" }
-        }
       >
         <div className="container">
           <div className="content">
