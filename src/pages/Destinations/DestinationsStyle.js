@@ -165,7 +165,6 @@ export const ContentWrapper = styled(motion.div)`
       height: 28px;
       margin: 0 auto;
       gap: 26px;
-      cursor: pointer;
       margin-bottom: 20px;
 
       @media ${(props) => props.theme.breakpoints.md} {
@@ -179,9 +178,12 @@ export const ContentWrapper = styled(motion.div)`
       }
 
       div {
+        cursor: pointer;
+
         p {
-          margin-bottom: 8px;
+          margin-bottom: unset;
           text-transform: uppercase;
+          padding-bottom: 8px;
         }
 
         .block {
