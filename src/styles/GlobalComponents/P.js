@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-function P({ children }) {
-  return <PWrapper>{children}</PWrapper>;
+function P({ children, props }) {
+  return <PWrapper {...props}>{children}</PWrapper>;
 }
 
 const PWrapper = styled(motion.p)`

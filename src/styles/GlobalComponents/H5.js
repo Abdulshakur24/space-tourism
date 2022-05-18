@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-function H5({ children }) {
-  return <H5Wrapper>{children}</H5Wrapper>;
+function H5({ children, props }) {
+  return <H5Wrapper {...props}>{children}</H5Wrapper>;
 }
 
 const H5Wrapper = styled(motion.h5)`

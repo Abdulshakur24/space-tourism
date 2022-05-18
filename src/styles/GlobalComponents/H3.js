@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-function H3({ children }) {
-  return <H3Wrapper>{children}</H3Wrapper>;
+function H3({ children, props }) {
+  return <H3Wrapper {...props}>{children}</H3Wrapper>;
 }
 
 const H3Wrapper = styled(motion.h3)`

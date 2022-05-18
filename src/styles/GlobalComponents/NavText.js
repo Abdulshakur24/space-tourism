@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-function NavText({ children }) {
-  return <SH1Wrapper>{children}</SH1Wrapper>;
+function NavText({ children, props }) {
+  return <SH1Wrapper {...props}>{children}</SH1Wrapper>;
 }
 
 const SH1Wrapper = styled(motion.p)`
