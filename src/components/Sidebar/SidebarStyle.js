@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { isFirefox, isIE } from "react-device-detect";
+
+const handleDevice = () => {
+  return isFirefox || isIE
+    ? "background-color: rgb(12, 14, 24);"
+    : "backdrop-filter: blur(81.5485px);";
+};
 
 export const SidebarWrapper = styled(motion.div)`
   position: fixed;
@@ -8,6 +15,8 @@ export const SidebarWrapper = styled(motion.div)`
   max-width: 254px;
   z-index: 140;
   width: 100%;
+
+  ${handleDevice()}
 
   @media ${(props) => props.theme.breakpoints.md} {
     display: none;
