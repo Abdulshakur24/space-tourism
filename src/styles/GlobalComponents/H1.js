@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 
 function H1({ children, props }) {
-  console.log({ ...props });
   return <H1Wrapper {...props}>{children}</H1Wrapper>;
 }
 
