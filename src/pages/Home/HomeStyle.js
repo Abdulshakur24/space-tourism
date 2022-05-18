@@ -29,7 +29,8 @@ export const HomeWrapper = styled(motion.div)`
   }
 
   .container {
-    width: clamp(0rem, 100%, 28.125rem);
+    width: 100%;
+    max-width: 28.125rem;
     height: clamp(0rem, 100vh, 23.875rem);
     margin: 0 auto;
     padding: 1.5rem 1.5rem 0 1.5rem;
@@ -45,7 +46,7 @@ export const HomeWrapper = styled(motion.div)`
       margin: 0 0 131px 165px;
     }
 
-    h2,
+    h5,
     h1 {
       margin-bottom: 1rem;
       @media ${(props) => props.theme.breakpoints.md} {
@@ -53,7 +54,7 @@ export const HomeWrapper = styled(motion.div)`
       }
     }
 
-    h2 {
+    h5 {
       font-family: ${(props) => props.theme.fonts.barlow};
       font-weight: 400;
       font-size: 1rem;
@@ -68,10 +69,9 @@ export const HomeWrapper = styled(motion.div)`
       }
 
       @media ${(props) => props.theme.breakpoints.lg} {
-        font-weight: 400;
-        font-size: 1.75rem;
-        line-height: 2.125rem;
-        letter-spacing: 0.2953rem;
+        line-height: 34px;
+        text-align: start;
+        letter-spacing: 4.725px;
       }
     }
     h1 {
@@ -81,6 +81,9 @@ export const HomeWrapper = styled(motion.div)`
       @media ${(props) => props.theme.breakpoints.md} {
         font-size: 9.375rem;
         line-height: 9.375rem;
+      }
+      @media ${(props) => props.theme.breakpoints.lg} {
+        text-align: start;
       }
     }
 
@@ -92,6 +95,11 @@ export const HomeWrapper = styled(motion.div)`
       @media ${(props) => props.theme.breakpoints.md} {
         font-size: 1rem;
         line-height: 1.75rem;
+      }
+      @media ${(props) => props.theme.breakpoints.lg} {
+        text-align: start;
+        font-size: 1.125rem;
+        line-height: 2rem;
       }
     }
   }

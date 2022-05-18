@@ -1,6 +1,6 @@
 import React from "react";
 import { HomeWrapper } from "./HomeStyle";
-import { H1, H2, P } from "../../styles/";
+import { H1, H5, P } from "../../styles/";
 import { useNavigate } from "react-router-dom";
 
 function Home({ duration }) {
@@ -13,7 +13,7 @@ function Home({ duration }) {
       transition={{ duration }}
     >
       <div className="container">
-        <H2>SO, YOU WANT TO TRAVEL TO</H2>
+        <H5>SO, YOU WANT TO TRAVEL TO</H5>
         <H1>SPACE</H1>
         <P>
           Let's face it; if you want to go to space, you might as well genuinely
