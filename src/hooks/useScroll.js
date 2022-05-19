@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function throttle(cb, delay = 50) {
+function throttle(cb, delay = 100) {
   let shouldWait = false;
   let waitingArgs;
 
