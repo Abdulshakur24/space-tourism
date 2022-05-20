@@ -1,25 +1,13 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { HeaderWrapper } from "./HeaderStyle";
 import { ReactComponent as Logo } from "../../assets/shared/logo.svg";
 import { isFirefox, isIE } from "react-device-detect";
 import { ToggleContext } from "../../pages/Layout/Layout";
 import { Link, useLocation } from "react-router-dom";
-import useScroll from "../../hooks/useScroll.js";
 
 function Header() {
-  const scroll = useScroll();
-  const [navClassList, setNavClassList] = useState([]);
-
-  useEffect(() => {
-    const _classList = [];
-    if (scroll.currentY > 50 && scroll.currentY - scroll.lastY > 0) {
-      _classList.push("hidden");
-    }
-    setNavClassList(_classList);
-  }, [scroll.currentY, scroll.lastY]);
-
   return (
-    <HeaderWrapper className={`${navClassList.join(" ")}`}>
+    <HeaderWrapper>
       <div className="container">
         <Logo />
         <div className="line" />
