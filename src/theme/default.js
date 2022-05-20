@@ -11,7 +11,7 @@ const object = {
   breakpoints: {
     sm: "screen and (min-width: 4250px)",
     md: "screen and (min-width: 768px)",
-    lg: "screen and (min-width: 1280px)",
+    lg: "screen and (min-width: 1220px)",
     xl: "screen and (min-width: 1440px)",
   },
 };
