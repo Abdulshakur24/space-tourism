@@ -1,28 +1,13 @@
 import { useEffect, useState } from "react";
 
-function throttle(cb, delay = 100) {
-  let shouldWait = false;
-  let waitingArgs;
-
-  const timeoutFunc = () => {
-    if (waitingArgs === null) {
-      shouldWait = false;
-    } else {
-      cb(waitingArgs);
-      waitingArgs = null;
-      setTimeout(timeoutFunc, delay);
+function throttle(cb, delay = 1000) {
+  let lastTime = 0;
+  return function (...args) {
+    var now = Date.now();
+    if (now - lastTime >= delay) {
+      cb(...args);
+      lastTime = now;
     }
-  };
-
-  return (...args) => {
-    if (shouldWait) {
-      waitingArgs = args;
-      return;
-    }
-    cb(...args);
-    shouldWait = true;
-
-    setTimeout(timeoutFunc, delay);
   };
 }
 
@@ -42,11 +27,11 @@ const useScroll = () => {
       });
     };
 
-    const updateThrottle = throttle(handleScroll);
+    const updateScrollThrottle = throttle(handleScroll, 100);
 
-    window.addEventListener("scroll", updateThrottle);
+    window.addEventListener("scroll", updateScrollThrottle);
 
-    return () => window.removeEventListener("scroll", updateThrottle);
+    return () => window.removeEventListener("scroll", updateScrollThrottle);
   }, []);
 
   return data;
