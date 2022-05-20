@@ -241,7 +241,7 @@ export const ContentWrapper = styled(motion.div)`
 `;
 
 export const IMG = styled(motion.img)`
-  width: max-content;
+  width: min-content;
   height: 13.875rem;
 
   @media ${(props) => props.theme.breakpoints.md} {
