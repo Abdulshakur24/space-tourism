@@ -19,13 +19,15 @@ export const HomeWrapper = styled(motion.div)`
     background-image: ${`url(${backgroundTablet})`};
     justify-content: space-between;
     gap: 6.75rem;
+    padding: 8.5rem 0 0 0;
   }
 
   @media ${(props) => props.theme.breakpoints.lg} {
     background-image: ${`url(${backgroundDesktop})`};
-    min-height: clamp(0px, 100vh, 900px);
+    min-height: clamp(0rem, 100vh, 56.25rem);
     flex-direction: row;
     align-items: flex-end;
+    padding: calc(6rem + 2.5rem) 0 0 0;
   }
 
   .container {
@@ -43,7 +45,7 @@ export const HomeWrapper = styled(motion.div)`
 
     @media ${(props) => props.theme.breakpoints.lg} {
       padding: unset;
-      margin: 0 0 131px 165px;
+      margin: 0 0 8.1875rem 10.3125rem;
     }
 
     h5,
@@ -69,9 +71,9 @@ export const HomeWrapper = styled(motion.div)`
       }
 
       @media ${(props) => props.theme.breakpoints.lg} {
-        line-height: 34px;
+        line-height: 2.125rem;
         text-align: start;
-        letter-spacing: 4.725px;
+        letter-spacing: 0.2953rem;
       }
     }
     h1 {
@@ -110,7 +112,7 @@ export const HomeWrapper = styled(motion.div)`
     display: flex;
     align-items: center;
     @media ${(props) => props.theme.breakpoints.lg} {
-      margin: 0 165px 131px 0;
+      margin: 0 10.3125rem 8.1875rem 0;
       justify-content: flex-end;
     }
     button {
@@ -132,7 +134,7 @@ export const HomeWrapper = styled(motion.div)`
         height: 15.125rem;
         font-size: 2rem;
         line-height: 2.3125rem;
-        margin: 0 auto 90px auto;
+        margin: 0 auto 5.625rem auto;
       }
       @media ${(props) => props.theme.breakpoints.lg} {
         width: 17.125rem;
