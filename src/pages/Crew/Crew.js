@@ -83,14 +83,14 @@ function Crew({ duration }) {
 
   // handle swipe drags
   const swipeDrags = (swipeVelocity) => {
-    if (swipeVelocity > 100) {
+    if (swipeVelocity > 80) {
       return setCurrentIndex((prev) => {
         if (prev <= 0) return 3;
         return prev - 1;
       });
     }
 
-    if (swipeVelocity < -100) {
+    if (swipeVelocity < -80) {
       return setCurrentIndex((prev) => {
         if (prev >= 3) return 0;
         return prev + 1;
