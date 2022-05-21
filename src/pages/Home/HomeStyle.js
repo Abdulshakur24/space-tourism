@@ -117,11 +117,12 @@ export const HomeWrapper = styled(motion.div)`
     }
     button {
       cursor: pointer;
-      margin: 0 auto;
+      margin: 0 auto 3rem auto;
       border-radius: 100%;
       border: none;
       width: 9.375rem;
       height: 9.375rem;
+      color: ${(props) => props.theme.colors.primary};
       background-color: ${(props) => props.theme.colors.tertiary};
       font-family: ${(props) => props.theme.fonts.bellefair};
       font-weight: 400;
