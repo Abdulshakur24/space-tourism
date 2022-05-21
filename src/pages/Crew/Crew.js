@@ -50,11 +50,11 @@ const props = {
 };
 
 function Crew({ duration }) {
-  const [current, setCurrent] = useState([]);
+  const [currentCrew, setCurrentCrew] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useLayoutEffect(() => {
-    return setCurrent([crews[currentIndex]]);
+    return setCurrentCrew([crews[currentIndex]]);
   }, [currentIndex]);
 
   // handle arrow buttons
@@ -113,7 +113,7 @@ function Crew({ duration }) {
         </H2>
 
         <AnimatePresence exitBeforeEnter>
-          {current.map(({ name, images, role, bio }) => (
+          {currentCrew.map(({ name, images, role, bio }) => (
             <div key={name} id="grid">
               <ImageWrapper>
                 <IMG
