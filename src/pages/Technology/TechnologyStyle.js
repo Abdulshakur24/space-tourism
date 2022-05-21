@@ -209,7 +209,7 @@ export const ContentWrapper = styled(motion.div)`
     }
   }
   .content-container {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
     margin: 0 auto;
     @media ${(props) => props.theme.breakpoints.md} {
       max-width: 28.625rem;
