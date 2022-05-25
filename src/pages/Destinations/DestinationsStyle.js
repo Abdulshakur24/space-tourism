@@ -276,6 +276,12 @@ export const ContentWrapper = styled(motion.div)`
 export const IMG = styled(motion.img)`
   width: 170px;
   height: 170px;
+  z-index: 10;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 
   @media ${(props) => props.theme.breakpoints.md} {
     width: 300px;

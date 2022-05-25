@@ -63,16 +63,31 @@ const props = {
 };
 
 function Destinations({ duration }) {
-  const [current, setCurrent] = useState([]);
-
-  const [currentName, setCurrentName] = useState("Moon");
+  const [currentDestination, setCurrentDestination] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useLayoutEffect(() => {
-    for (let i = 0; i < destinations.length; i++) {
-      if (destinations[i].name === currentName)
-        return setCurrent([destinations[i]]);
+    return setCurrentDestination([destinations[currentIndex]]);
+  }, [currentIndex]);
+
+  // handle swipe drags
+  const swipeDrags = (swipeVelocity) => {
+    if (swipeVelocity > 80) {
+      return setCurrentIndex((prev) => {
+        if (prev <= 0) return 3;
+        return prev - 1;
+      });
     }
-  }, [currentName]);
+
+    if (swipeVelocity < -80) {
+      return setCurrentIndex((prev) => {
+        if (prev >= 3) return 0;
+        return prev + 1;
+      });
+    }
+  };
+
+  const debounceSwipeDrags = debounce(swipeDrags, 100);
 
   return (
     <DestinationsWrapper
@@ -83,62 +98,80 @@ function Destinations({ duration }) {
     >
       <div className="container">
         <AnimatePresence exitBeforeEnter>
-          {current.map(({ name, images, description, distance, travel }) => (
-            <div id="flex" key={name}>
-              <ImageWrapper>
-                <H2>
-                  <em>01</em> PICK YOUR DESTINATION
-                </H2>
-                <IMG
-                  transition={{ duration: 0.25 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  src={images.png}
-                  alt={name}
-                />
-              </ImageWrapper>
-              <ContentWrapper>
-                <div className="contents-container">
-                  <div className="navs">
-                    <div onClick={() => setCurrentName("Moon")}>
-                      <p>Moon</p>
-                      <div className={`block ${currentName === "Moon"}`} />
+          {currentDestination.map(
+            ({ name, images, description, distance, travel }) => (
+              <div id="flex" key={name}>
+                <ImageWrapper>
+                  <H2>
+                    <em>01</em> PICK YOUR DESTINATION
+                  </H2>
+                  <IMG
+                    transition={{ duration: 0.25 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    src={images.png}
+                    alt={name}
+                    drag={"x"}
+                    dragConstraints={{ left: 0, right: 0 }}
+                    onDrag={(_, info) => debounceSwipeDrags(info.offset.x)}
+                    dragTransition={{ min: 100, max: 0 }}
+                    dragSnapToOrigin
+                  />
+                </ImageWrapper>
+                <ContentWrapper>
+                  <div className="contents-container">
+                    <div className="navs">
+                      <div onClick={() => setCurrentIndex(0)}>
+                        <p>Moon</p>
+                        <div className={`block ${currentIndex === 0}`} />
+                      </div>
+                      <div onClick={() => setCurrentIndex(1)}>
+                        <p>Mars</p>
+                        <div className={`block ${currentIndex === 1}`} />
+                      </div>
+                      <div onClick={() => setCurrentIndex(2)}>
+                        <p>Europa</p>
+                        <div className={`block ${currentIndex === 2}`} />
+                      </div>
+                      <div onClick={() => setCurrentIndex(3)}>
+                        <p>Titan</p>
+                        <div className={`block ${currentIndex === 3}`} />
+                      </div>
                     </div>
-                    <div onClick={() => setCurrentName("Mars")}>
-                      <p>Mars</p>
-                      <div className={`block ${currentName === "Mars"}`} />
-                    </div>
-                    <div onClick={() => setCurrentName("Europa")}>
-                      <p>Europa</p>
-                      <div className={`block ${currentName === "Europa"}`} />
-                    </div>
-                    <div onClick={() => setCurrentName("Titan")}>
-                      <p>Titan</p>
-                      <div className={`block ${currentName === "Titan"}`} />
+                    <H1 props={props}>{name}</H1>
+                    <P props={props}>{description}</P>
+                    <div className="line" />
+                    <div className="time-distance">
+                      <div className="distance">
+                        <P>AVG. DISTANCE</P>
+                        <H2 props={props}>{distance}</H2>
+                      </div>
+                      <div className="time">
+                        <P>EST. TRAVEL TIME</P>
+                        <H2 props={props}>{travel}</H2>
+                      </div>
                     </div>
                   </div>
-                  <H1 props={props}>{name}</H1>
-                  <P props={props}>{description}</P>
-                  <div className="line" />
-                  <div className="time-distance">
-                    <div className="distance">
-                      <P>AVG. DISTANCE</P>
-                      <H2 props={props}>{distance}</H2>
-                    </div>
-                    <div className="time">
-                      <P>EST. TRAVEL TIME</P>
-                      <H2 props={props}>{travel}</H2>
-                    </div>
-                  </div>
-                </div>
-              </ContentWrapper>
-            </div>
-          ))}
+                </ContentWrapper>
+              </div>
+            )
+          )}
         </AnimatePresence>
       </div>
     </DestinationsWrapper>
   );
+}
+
+function debounce(cb, delay = 1000) {
+  let timeout;
+
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      cb(...args);
+    }, delay);
+  };
 }
 
 export default Destinations;
