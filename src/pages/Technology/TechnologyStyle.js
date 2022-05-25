@@ -261,6 +261,11 @@ export const IMG = styled(motion.img)`
   background-size: cover;
   width: 100%;
   height: 170px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 
   @media ${(props) => props.theme.breakpoints.md} {
     max-width: 768px;
