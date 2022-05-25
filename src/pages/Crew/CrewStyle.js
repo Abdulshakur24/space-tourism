@@ -243,6 +243,11 @@ export const ContentWrapper = styled(motion.div)`
 export const IMG = styled(motion.img)`
   object-fit: contain;
   height: 13.875rem;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
 
   @media ${(props) => props.theme.breakpoints.md} {
     height: 33.25rem;
