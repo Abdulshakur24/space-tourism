@@ -10,7 +10,9 @@ function Header() {
     <HeaderWrapper>
       <div className="container">
         <Logo />
-        <div className="line" />
+        <div className="line-container">
+          <div className="line" />
+        </div>
         <Burger />
         <Navigations />
       </div>
