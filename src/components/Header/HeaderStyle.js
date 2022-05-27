@@ -38,21 +38,27 @@ export const HeaderWrapper = styled(motion.div)`
       @media ${(props) => props.theme.breakpoints.md} {
         width: 48px;
         height: 48px;
+        min-width: 48px;
       }
     }
 
-    .line {
+    .line-container {
       display: none;
 
-      @media ${(props) => props.theme.breakpoints.lg} {
-        display: block;
-        width: clamp(0px, 100%, 473px);
-        position: absolute;
-        left: 164px;
+      .line {
+        width: 100%;
         height: 1px;
         z-index: 1;
         background-color: ${(props) => props.theme.colors.tertiary};
         opacity: 0.25;
+        transform: translateX(48px);
+      }
+      @media ${(props) => props.theme.breakpoints.lg} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        max-width: 473px;
       }
     }
 
