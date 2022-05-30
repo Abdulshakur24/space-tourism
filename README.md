@@ -2,6 +2,8 @@
 
 # Space Tourism
 
+Deployed at https://space-tourism-by-ashakur.netlify.app/
+
 This project was generated with [CRA](https://create-react-app.dev/) version 18.1.0.
 
 ## Libraries used:
