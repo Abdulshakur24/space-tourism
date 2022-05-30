@@ -2,12 +2,15 @@
 
 # Space Tourism
 
+A challenge project from [Front-end Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3).
+
 Deployed at https://space-tourism-by-ashakur.netlify.app/
 
 This project was generated with [CRA](https://create-react-app.dev/) version 18.1.0.
 
 ## Libraries used:
 
+- React
 - Framer Motion
 - Styled-components
 - React Router DOM
